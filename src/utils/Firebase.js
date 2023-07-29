@@ -7,13 +7,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnBQ4mbiH8OGgh4w4F3CiHX-Ui5IcvHII",
-  authDomain: "you-tube-clone-3652b.firebaseapp.com",
-  projectId: "you-tube-clone-3652b",
-  storageBucket: "you-tube-clone-3652b.appspot.com",
-  messagingSenderId: "7004058506",
-  appId: "1:7004058506:web:7923307ab1d305e8698e73",
-  measurementId: "G-QM1RWTGB2F",
+  apiKey: "AIzaSyD2jBdkSA2zAAnqSx3n3MSsjTZ0_h3VF-w",
+  authDomain: "fir-intro-ca4cd.firebaseapp.com",
+  projectId: "fir-intro-ca4cd",
+  storageBucket: "fir-intro-ca4cd.appspot.com",
+  messagingSenderId: "715279288592",
+  appId: "1:715279288592:web:74f31fdc5783a3642efd95",
+  measurementId: "G-WZZF9RGH6D",
 };
 
 // Initialize Firebase
