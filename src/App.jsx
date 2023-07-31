@@ -6,7 +6,7 @@ import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import HomePage from "./components/HomePage";
 import SearchResult from "./components/SearchResult";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import ShortsPage from "./components/ShotsPage";
 
 export const ThemeContext = createContext(null);
@@ -37,8 +37,27 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const theme = isDarkMode ? "dark:bg-slate-800 text-white" : "";
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode);
+  const theme = isDarkMode ? "bg-slate-800 text-white" : "";
+
+  useEffect(() => {
+    const handleChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+    darkModeMediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
   return (
     <Provider store={store}>
       <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
